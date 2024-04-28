@@ -1,19 +1,30 @@
-import mongoose from "mongoose";
+import { DataTypes, Model } from 'sequelize';
+import { sequelize } from '../config/db'; 
 
-const FileSchema = new mongoose.Schema(
+class FileModel extends Model {}
+
+FileModel.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     description: {
-      type: String,
-      required: true,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     filePath: {
-      type: String,
-      required: true,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
   },
   {
-    timestamps: true,
+    sequelize,
+    modelName: 'File',
+    tableName: 'files',
+    timestamps: false,
   }
 );
 
-export const FileModel = mongoose.model("File", FileSchema);
+export default FileModel;
