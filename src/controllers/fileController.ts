@@ -27,11 +27,11 @@ class FileController {
     }
   }
 
-  async createFile(request: Request, response: Response) {
+  async uploadFile(request: Request, response: Response) {
     try {
       const { description, filePath } = request.body;
       const file = await FileModel.create({ description, filePath });
-      return response.status(201).json({ message: "File created", data: file });
+      return response.status(201).json({ message: "File uploaded", data: file });
     } catch (error) {
       console.error('Error creating file:', error);
       return response.sendStatus(500);

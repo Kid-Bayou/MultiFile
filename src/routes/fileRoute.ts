@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/file", Filecontroller.getAllFile);
 router.get("/file/:id", Filecontroller.getFile);
-router.post("/file", fileValidator, Filecontroller.createFile);
+router.post("/file", fileValidator, Filecontroller.uploadFile);
 router.put("/file/:id", Filecontroller.updateFile);
 router.delete("/file/:id", Filecontroller.deleteFile);
 
