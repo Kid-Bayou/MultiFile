@@ -1,5 +1,23 @@
 import { Request, Response } from 'express';
 import FileModel from "../model/file";
+import multer from "multer"
+import dotenv from 'dotenv';
+
+dotenv.config();
+const path = process.env.MULTER_FILEPATH;
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, '/uploads/');
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+
+export const upload = multer({ storage: storage });
+
+
 
 class FileController {
   async getAllFile(request: Request, response: Response) {
@@ -29,14 +47,35 @@ class FileController {
 
   async uploadFile(request: Request, response: Response) {
     try {
-      const { description, filePath } = request.body;
-      const file = await FileModel.create({ description, filePath });
-      return response.status(201).json({ message: "File uploaded", data: file });
+      upload.single('file')(request, response, async (error: any) => {
+        if (error instanceof multer.MulterError) {
+          console.error('Error uploading file:', error);
+          return response.status(400).json({ error: 'File upload error' });
+        } else if (error) {
+          console.error('Error uploading file:', error);
+          return response.status(500).json({ error: 'Internal server error' });
+        }
+  
+        console.log('Uploaded file:', request.file); // Log the uploaded file
+        
+        const { description } = request.body;
+        const filePath = request.file ? request.file.path : undefined;
+  
+        if (!description || !filePath) {
+          return response.status(400).json({ error: 'Description and file are required' });
+        }
+  
+        const file = await FileModel.create({ description, filePath });
+        return response.status(201).json({ message: "File uploaded", data: file });
+      });
     } catch (error) {
       console.error('Error creating file:', error);
       return response.sendStatus(500);
     }
   }
+
+  
+  
 
   async updateFile(request: Request, response: Response) {
     try {
