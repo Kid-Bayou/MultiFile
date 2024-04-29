@@ -19,6 +19,8 @@ const FileList: React.FC = () => {
 
   const handleUpdate = (id: number) => {
     // update logic here
+    var x = id;
+    console.log(x);
   };
 
   return (
