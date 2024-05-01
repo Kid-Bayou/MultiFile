@@ -1,9 +1,17 @@
+import { useNavigate } from "react-router-dom";
 
 const SuccessPage: React.FC = () => {
+
+  const navigate = useNavigate();
+
+  const handleHome = () => {
+    navigate("/")
+  }
   
     return (
       <>
-          <h1>Hello</h1>
+          <h2>Transaction was a success</h2>
+          <button onClick={handleHome}>Back to Home</button>
       </>
     );
   };

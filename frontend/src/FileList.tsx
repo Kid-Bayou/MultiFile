@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom"
 
 interface DataItem {
   id: number;
@@ -7,6 +8,7 @@ interface DataItem {
 }
 
 const FileList: React.FC = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState<DataItem[]>([
     { id: 1, description: 'Dummy Description 1', filePath: '/dummy/file/path1' },
     { id: 2, description: 'Dummy Description 2', filePath: '/dummy/file/path2' },
@@ -15,16 +17,20 @@ const FileList: React.FC = () => {
 
   const handleDelete = (id: number) => {
     setData(data.filter(item => item.id !== id));
+    navigate(`/deletefile/${id}`);
   };
 
   const handleUpdate = (id: number) => {
-    // update logic here
-    var x = id;
-    console.log(x);
+    navigate(`/updatefile/${id}`);
+  };
+
+  const handleAddFile = ()  => {
+    navigate("/addfile");
   };
 
   return (
-    <table style={{ borderCollapse: 'collapse', width: '100%' }}>
+    <>
+    <table style={{ borderCollapse: 'collapse', width: '100%', margin: '20px' }}>
       <thead>
         <tr>
           <th style={tableHeaderStyle}>Description</th>
@@ -45,6 +51,8 @@ const FileList: React.FC = () => {
         ))}
       </tbody>
     </table>
+    <button onClick={handleAddFile}>Add File</button>
+    </>
   );
 };
 
