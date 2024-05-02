@@ -8,3 +8,48 @@
   height: 90px;
   color: #aaa8ad77;
 }
+
+.add-file-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.add-file-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.add-file-textarea {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-items: center;
+}
+
+/* ================================= */
+
+
+.update-file-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.update-file-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.update-file-textarea {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-items: center;
+}
