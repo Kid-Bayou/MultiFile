@@ -38,8 +38,8 @@ This document outlines the development process for a multi-file uploader applica
   - `POST /files`: Uploads a new file.
   - `DELETE /files/:id`: Deletes a file.
   - `PUT /files/:id`: Updates file information.
-- Use MVC Architecture.
-- Use Sequelize ORM.
+- Used MVC Architecture.
+- Used Sequelize ORM.
 
 ## Linking Front-End and Back-End
 - Used Axios in the React application to communicate with the backend.
@@ -47,7 +47,6 @@ This document outlines the development process for a multi-file uploader applica
 ## Deployment
 
 ### Render Deployment Link
-<!-- https://multifile-p12t.onrender.com -->
 https://multifile-p12t.onrender.com
 
 ### Vercel Deployment Link
