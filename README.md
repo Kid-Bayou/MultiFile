@@ -1,9 +1,4 @@
 
-
-Render Backend Deployment Link - https://multifile-p12t.onrender.com
-
-Vercel Frontend Link - https://multi-file.vercel.app/
-
 # Multi File Uploader
 
 This document outlines the development process for a multi-file uploader application. The application will allow users to upload multiple files (optional) with descriptions (required). Uploaded files will be displayed in a table format with the following information:
@@ -47,16 +42,15 @@ This document outlines the development process for a multi-file uploader applica
 - Use Sequelize ORM.
 
 ## Linking Front-End and Back-End
-- Use Axios or Fetch API in the React application to communicate with the backend.
+- Used Axios in the React application to communicate with the backend.
 
 ## Deployment
-Please deploy the backend on Render and the frontend on Vercel. Provide the links for both deployments.
 
 ---
 
-[Render Deployment](#) <!-- Insert Render deployment link here -->
+[Render Deployment](#) <!-- https://multifile-p12t.onrender.com -->
 
-[Vercel Deployment](#) <!-- Insert Vercel deployment link here -->
+[Vercel Deployment](#) <!-- https://multi-file.vercel.app -->
 
 ---
 
