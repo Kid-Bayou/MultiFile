@@ -46,12 +46,9 @@ This document outlines the development process for a multi-file uploader applica
 
 ## Deployment
 
----
-
 ### Render Deployment Link
 <!-- https://multifile-p12t.onrender.com -->
-[Render Deployment](#) <!-- https://multifile-p12t.onrender.com -->
+https://multifile-p12t.onrender.com
 
 ### Vercel Deployment Link
-<!-- https://multi-file.vercel.app/ -->
-[Vercel Deployment](#) <!-- https://multi-file.vercel.app -->
+https://multi-file.vercel.app/
